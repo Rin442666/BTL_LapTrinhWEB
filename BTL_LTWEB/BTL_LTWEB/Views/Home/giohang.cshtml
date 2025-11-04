@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "Giỏ hàng";
+    Layout = "_Layout";
+}
+<div class="back-button">
+    <a href="@Url.Action("Index", "Home")">
+        <!-- Sử dụng Razor routing -->
+        <img src="img/chitietsanpham/back arrow.png" alt="Back" />
+        Trang chủ
+    </a>
+</div>
+<section style="min-height: 85vh">
+    <h1 class="cart-title"> Giỏ Hàng Của Bạn</h1>
+    <table class="listSanPham"></table>
+</section> <!-- End Section -->
+@section Scripts {
+    <script>
+        initGioHang();  // Gọi hàm khởi tạo giỏ hàng từ giohang.js
+    </script>
+}
