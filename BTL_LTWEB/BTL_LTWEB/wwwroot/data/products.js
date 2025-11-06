@@ -98,7 +98,7 @@ var list_products = [{
     "star": 0,
     "rateCount": 0,
     "promo": {
-        "name": "moiramat",
+        "name": "moiranat",
         "value": ""
     },
     "detail": {
@@ -687,7 +687,7 @@ var list_products = [{
         "battery": "5100 mAh, sạc siêu nhanh 45W"
     },
     "masp": "Opp0"
-},
+},	
 {
     "name": "OPPO Reno12 5G",
     "company": "Oppo",
@@ -710,7 +710,7 @@ var list_products = [{
         "battery": "5000 mAh, sạc nhanh 80W"
     },
     "masp": "Opp1"
-},
+},	
 {
     "name": "OPPO Find X5 Pro",
     "company": "Oppo",
@@ -733,7 +733,7 @@ var list_products = [{
         "battery": "5000 mAh, sạc không dây và sạc siêu nhanh 80W"
     },
     "masp": "Opp2"
-},
+},	
 {
     "name": "OPPO Find N3",
     "company": "Oppo",
@@ -756,7 +756,7 @@ var list_products = [{
         "battery": "4805 mAh, sạc nhanh 67W, tiết kiệm pin"
     },
     "masp": "Opp3"
-},
+},	
 {
     "name": "OPPO A77s",
     "company": "Oppo",
@@ -779,7 +779,7 @@ var list_products = [{
         "battery": "5000 mAh, Sạc nhanh VOCC 33W"
     },
     "masp": "Opp4"
-},
+},	
 {
     "name": "OPPO A58 4G",
     "company": "Oppo",
@@ -802,7 +802,7 @@ var list_products = [{
         "battery": "5000 mAh, Siêu sạc nhanh SUPERVOOC 33W"
     },
     "masp": "Opp5"
-},
+},	
 {
     "name": "OPPO A17K",
     "company": "Oppo",
@@ -825,7 +825,7 @@ var list_products = [{
         "battery": "5000 mAh, sạc 10W"
     },
     "masp": "Opp6"
-},
+},	
 {
     "name": "OPPO Reno11 F 5G",
     "company": "Oppo",
@@ -848,7 +848,7 @@ var list_products = [{
         "battery": "5000 mAh, Sạc nhanh 67W"
     },
     "masp": "Opp7"
-},
+},	
 {
     "name": "OPPO Reno12 F 5G",
     "company": "Oppo",
@@ -871,7 +871,7 @@ var list_products = [{
         "battery": "5000 mAh, Sạc nhanh 45W"
     },
     "masp": "Opp8"
-},
+},	
 {
     "name": "OPPO A79 5G",
     "company": "Oppo",
@@ -894,7 +894,7 @@ var list_products = [{
         "battery": "5000 mAh, Sạc siêu nhanh SuperVOOC 33W"
     },
     "masp": "Opp9"
-},
+},	
 {
     "name": "Nokia 100% 24K Carat Gold",
     "company": "Nokia",
@@ -917,7 +917,7 @@ var list_products = [{
         "battery": "Li-Ion 1020 mAh, siêu tiết kiệm pin, thời gian sử dụng lên tới vài tháng"
     },
     "masp": "Nok0"
-},
+},	
 {
     "name": "Samsung Galaxy A31 Like New 75%",
     "company": "Samsung",

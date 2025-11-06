@@ -192,3 +192,21 @@ hr {
         opacity: 0
     }
 }
+
+/* Khung ngoài của phần sản phẩm */
+.khungSanPham-box {
+    box-sizing: border-box;
+    border: 3px solid #007bff;
+    border-radius: 15px;
+    padding: 50px;
+    margin: 30px auto;
+    background-color: #ffffff;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    max-width: 1250px;
+    min-height: 220px;
+}
+
+.khungSanPham-box .contain-products {
+    margin: 0;
+    padding: 0;
+}

@@ -79,7 +79,7 @@ function addToWeb(p, ele, returnString) {
     }
 
     // Tạo link tới chi tiết sản phẩm, chuyển tất cả ' ' thành '-'
-    var chitietSp = 'chitietsanpham.cshtml?' + p.name.split(' ').join('-');
+    var chitietSp = '/chitietsanpham?' + p.name.split(' ').join('-');
 
     // Cho mọi thứ vào tag <li>... </li>
     var newLi =

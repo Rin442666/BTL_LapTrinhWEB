@@ -175,7 +175,7 @@ function addHeader() {
 	<div class="header group">
         <div class="logo">
             <a href="/">
-                <img src="/img/logo.png" alt="Trang chủ Smartphone Store" title="Trang chủ Smartphone Store">
+                <img src="/img/logo2.png" alt="Trang chủ Raumartphone Store" title="Trang chủ Raumartphone Store">
             </a>
         </div>
         <div class="content">
@@ -218,7 +218,7 @@ function addFooter() {
         <span id="closebtn">&otimes;</span>
     </div>
     <div class="copy-right">
-        <p><a href="/">5AE Store</a> - All rights reserved © 2024 - Designed by Group 5AE
+        <p><a href="/">Raumartphone</a> - All rights reserved © 2025 - Designed by Group Raumartphone
     </div>`);
 }
 

@@ -5,8 +5,10 @@ wwwroot\css\gioHang.css
 wwwroot\css\header.css
 wwwroot\css\home_products.css
 wwwroot\css\pagination_phantrang.css
+wwwroot\css\site.css
 wwwroot\css\style.css
 wwwroot\css\trangchu.css
+wwwroot\data\products.js
 wwwroot\favicon.ico
 wwwroot\img\banners\banner0.jpg
 wwwroot\img\banners\banner0.webp
@@ -41,6 +43,7 @@ wwwroot\img\company\Samsung.jpg
 wwwroot\img\company\Xiaomi.png
 wwwroot\img\favicon.ico
 wwwroot\img\logo.png
+wwwroot\img\logo2.png
 wwwroot\img\products\iphone-11.jpg
 wwwroot\img\products\iphone-12.jpg
 wwwroot\img\products\iphone-13.jpg
@@ -83,6 +86,7 @@ wwwroot\img\products\xiaomi-redmi-note-13-pro-plus.jpg
 wwwroot\img\products\xiaomi_14t_pro.jpg
 wwwroot\img\products\xiaomi_poco_x5.jpg
 wwwroot\img\products\xiaomi_poco_x6_pro.jpg
+wwwroot\img\raumart.ico
 wwwroot\js\chitietsanpham.js
 wwwroot\js\classes.js
 wwwroot\js\dungchung.js
@@ -91,6 +95,7 @@ wwwroot\js\Jquery\Jquery.min.js
 wwwroot\js\owlcarousel\owl.carousel.min.css
 wwwroot\js\owlcarousel\owl.carousel.min.js
 wwwroot\js\owlcarousel\owl.theme.default.min.css
+wwwroot\js\trangchu.js
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css
@@ -148,5 +153,3 @@ wwwroot\lib\jquery\dist\jquery.js
 wwwroot\lib\jquery\dist\jquery.min.js
 wwwroot\lib\jquery\dist\jquery.min.map
 wwwroot\lib\jquery\LICENSE.txt
-wwwroot\data\products.js
-wwwroot\js\trangchu.js

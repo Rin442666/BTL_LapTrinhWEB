@@ -19,13 +19,13 @@ namespace BTL_LTWEB.Controllers
             return View();
         }
 
-
+        [Route("chitietsanpham")]
         public IActionResult chitietsanpham()
         {
             ViewData["Title"] = "Chi Tiết Sản Phẩm";
             return View();
         }
-
+        [Route("giohang")]
         public IActionResult giohang()
         {
             ViewData["Title"] = "Giỏ hàng";
