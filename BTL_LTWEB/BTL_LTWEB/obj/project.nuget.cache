@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "veEgwME0FTo=",
+  "dgSpecHash": "ZVevDXDirHo=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Admin\\source\\web\\BTL_LapTrinhWEB\\BTL_LTWEB\\BTL_LTWEB\\BTL_LTWEB.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\Coke\\Source\\Repos\\BTL_LapTrinhWEB\\BTL_LTWEB\\BTL_LTWEB\\BTL_LTWEB.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Coke\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\8.0.21\\microsoft.windowsdesktop.app.ref.8.0.21.nupkg.sha512",
+    "C:\\Users\\Coke\\.nuget\\packages\\microsoft.netcore.app.ref\\8.0.21\\microsoft.netcore.app.ref.8.0.21.nupkg.sha512",
+    "C:\\Users\\Coke\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\8.0.21\\microsoft.aspnetcore.app.ref.8.0.21.nupkg.sha512",
+    "C:\\Users\\Coke\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\8.0.21\\microsoft.netcore.app.host.win-x64.8.0.21.nupkg.sha512"
+  ],
   "logs": []
 }

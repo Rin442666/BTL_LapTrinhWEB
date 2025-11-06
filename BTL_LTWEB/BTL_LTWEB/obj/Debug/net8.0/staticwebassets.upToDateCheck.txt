@@ -87,7 +87,6 @@ wwwroot\img\products\xiaomi_14t_pro.jpg
 wwwroot\img\products\xiaomi_poco_x5.jpg
 wwwroot\img\products\xiaomi_poco_x6_pro.jpg
 wwwroot\img\raumart.ico
-wwwroot\js\chitietsanpham.js
 wwwroot\js\classes.js
 wwwroot\js\dungchung.js
 wwwroot\js\giohang.js
@@ -153,3 +152,4 @@ wwwroot\lib\jquery\dist\jquery.js
 wwwroot\lib\jquery\dist\jquery.min.js
 wwwroot\lib\jquery\dist\jquery.min.map
 wwwroot\lib\jquery\LICENSE.txt
+wwwroot\js\chitietsanpham.js

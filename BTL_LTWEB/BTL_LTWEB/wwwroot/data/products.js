@@ -98,7 +98,7 @@ var list_products = [{
     "star": 0,
     "rateCount": 0,
     "promo": {
-        "name": "moiranat",
+        "name": "moiramat",
         "value": ""
     },
     "detail": {

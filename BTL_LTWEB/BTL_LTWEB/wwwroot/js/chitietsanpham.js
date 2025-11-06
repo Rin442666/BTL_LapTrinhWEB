@@ -166,29 +166,7 @@ function changepic(src) {
     document.getElementById("bigimg").src = src;
 }
 
-// Thêm sản phẩm vào các khung sản phẩm
-function addKhungSanPham(list_sanpham, tenKhung, color, ele) {
-	// convert color to code
-	var gradient = `background-image: linear-gradient(120deg, ` + color[0] + ` 0%, ` + color[1] + ` 50%, ` + color[0] + ` 100%);`
-	var borderColor = `border-color: ` + color[0];
-	var borderA = `	border-left: 2px solid ` + color[0] + `;
-					border-right: 2px solid ` + color[0] + `;`;
-
-	// mở tag
-	var s = `<div class="khungSanPham" style="` + borderColor + `">
-				<h3 class="tenKhung" style="` + gradient + `">* ` + tenKhung + ` *</h3>
-				<div class="listSpTrongKhung flexContain">`;
-
-	for (var i = 0; i < list_sanpham.length; i++) {
-		s += addProduct(list_sanpham[i], null, true);
-		// truyền vào 'true' để trả về chuỗi rồi gán vào s
-	}
-
-	// thêm khung vào contain-khung
-	ele.innerHTML += s;
-}
-
-/// gợi ý sản phẩm
+// gợi ý sản phẩm
 function suggestion(){
     // ====== Lay ra thong tin san pham hien tai ====== 
     const giaSanPhamHienTai = stringToNum(sanPhamHienTai.price);
@@ -248,6 +226,32 @@ function suggestion(){
     // ====== Hiển thị 5 sản phẩm lên web ====== 
     if(sanPhamTuongTu.length) {
         let div = document.getElementById('goiYSanPham');
-        addKhungSanPham(sanPhamTuongTu, 'Bạn có thể thích', ['#434aa8', '#ec1f1f'], div);
+        addKhungSanPham_List(sanPhamTuongTu, 'Bạn có thể thích', ['#434aa8', '#ec1f1f'], div);
     }
+}
+
+// Thêm sản phẩm vào các khung sản phẩm (chi tiết page version)
+// Renamed to avoid colliding with trangchu.js addKhungSanPham
+function addKhungSanPham_List(list_sanpham, tenKhung, color, ele) {
+    // convert color to code
+    var gradient = `background-image: linear-gradient(120deg, ` + color[0] + ` 0%, ` + color[1] + ` 50%, ` + color[0] + ` 100%);`
+    var borderColor = `border-color: ` + color[0];
+    var borderA = `    border-left: 2px solid ` + color[0] + `;
+                    border-right: 2px solid ` + color[0] + `;`;
+
+    // mở tag
+    var s = `<div class="khungSanPham" style="` + borderColor + `">
+                <h3 class="tenKhung" style="` + gradient + `">* ` + tenKhung + ` *</h3>
+                <div class="listSpTrongKhung flexContain">`;
+
+        for (var i = 0; i < list_sanpham.length; i++) {
+            s += addProduct(list_sanpham[i], null, true);
+        }
+
+    // đóng tag
+    s += `    </div>
+            </div>`;
+
+    // thêm khung vào contain-khung
+    ele.innerHTML += s;
 }

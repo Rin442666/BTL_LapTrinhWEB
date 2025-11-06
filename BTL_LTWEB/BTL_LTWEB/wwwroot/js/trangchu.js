@@ -46,7 +46,7 @@ function initTrangChu() {
 		// hiển thị list sản phẩm chính
 		document.getElementsByClassName('contain-products')[0].style.display = '';
 
-	} else { // ko có filter: Hiển thị sản phẩm chính theo phân trang + các khung sản phẩm
+	} else {
 
 		// --- BỔ SUNG: Hiển thị sản phẩm chính theo phân trang (mặc định) ---
 		sanPhamPhanTich = list_products;
