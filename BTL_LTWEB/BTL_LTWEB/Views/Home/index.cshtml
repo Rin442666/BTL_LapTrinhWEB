@@ -28,23 +28,30 @@
     </a>
 </div> <!-- Những bộ lọc đã chọn -->
 <hr>
-<!-- Mặc định mới vào trang sẽ ẩn đi, nế có filter thì mới hiện lên -->
-<div class="contain-products" style="display:none">
-    <div class="filterName">
-        <input type="text" placeholder="Lọc trong trang theo tên..." onkeyup="filterProductsName(this)">
-    </div> <!-- End FilterName -->
-    <ul id="products" class="homeproduct group flexContain">
-        <div id="khongCoSanPham">
-            <i class="fa fa-times-circle"></i>
-            Không có sản phẩm nào
-        </div> <!-- End Khong co san pham -->
-    </ul><!-- End products -->
-    <div class="pagination"></div>
-</div>
-<!-- Div hiển thị khung sp hot, khuyến mãi, mới ra mắt ... -->
-<div class="contain-khungSanPham"></div>
+
+<section>
+    <div class="khungSanPham-box">
+        <h2 style="display:none">Danh mục sản phẩm</h2> <!-- optional; hide if not needed -->
+        <div class="contain-products" style="display:none">
+            <div class="filterName">
+                <input type="text" placeholder="Lọc trong trang theo tên..." onkeyup="filterProductsName(this)">
+            </div> <!-- End FilterName -->
+            <ul id="products" class="homeproduct group flexContain">
+                <div id="khongCoSanPham">
+                    <i class="fa fa-times-circle"></i>
+                    Không có sản phẩm nào
+                </div> <!-- End Khong co san pham -->
+            </ul><!-- End products -->
+            <div class="pagination"></div>
+        </div>
+
+        <!-- Div hiển thị khung sp hot, khuyến mãi, mới ra mắt ... -->
+        <div class="contain-khungSanPham"></div>
+    </div>
+</section>
 
 @section Scripts {
+    <script src="~/js/trangchu.js"></script>
     <script>
         initTrangChu();  // Gọi hàm khởi tạo trang chủ từ trangchu.js
     </script>

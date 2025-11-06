@@ -91,7 +91,6 @@ wwwroot\js\Jquery\Jquery.min.js
 wwwroot\js\owlcarousel\owl.carousel.min.css
 wwwroot\js\owlcarousel\owl.carousel.min.js
 wwwroot\js\owlcarousel\owl.theme.default.min.css
-wwwroot\js\trangchu.js
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css
@@ -150,3 +149,4 @@ wwwroot\lib\jquery\dist\jquery.min.js
 wwwroot\lib\jquery\dist\jquery.min.map
 wwwroot\lib\jquery\LICENSE.txt
 wwwroot\data\products.js
+wwwroot\js\trangchu.js

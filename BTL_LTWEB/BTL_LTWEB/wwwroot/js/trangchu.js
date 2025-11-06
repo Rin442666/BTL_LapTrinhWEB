@@ -37,39 +37,29 @@ function initTrangChu() {
 	var sanPhamPhanTrang;
 
 	var filters = getFilterFromURL();
-	if (filters.length) { // có filter
-		sanPhamPhanTich = phanTich_URL(filters, true);
-		sanPhamPhanTrang = tinhToanPhanTrang(sanPhamPhanTich, filtersFromUrl.page || 1);
-		if (!sanPhamPhanTrang.length) alertNotHaveProduct(false);
-		else addProductsFrom(sanPhamPhanTrang);
+	// ko có filter: Hiển thị sản phẩm chính theo phân trang + các khung sản phẩm
 
-		// hiển thị list sản phẩm chính
-		document.getElementsByClassName('contain-products')[0].style.display = '';
+	// --- BỔ SUNG: Hiển thị sản phẩm chính theo phân trang (mặc định) ---
+	sanPhamPhanTich = list_products;
+	sanPhamPhanTrang = tinhToanPhanTrang(sanPhamPhanTich, 1);
+	addProductsFrom(sanPhamPhanTrang);
 
-	} else { // ko có filter: Hiển thị sản phẩm chính theo phân trang + các khung sản phẩm
+	// Hiển thị list sản phẩm chính
+	document.getElementsByClassName('contain-products')[0].style.display = '';
 
-		// --- BỔ SUNG: Hiển thị sản phẩm chính theo phân trang (mặc định) ---
-		sanPhamPhanTich = list_products;
-		sanPhamPhanTrang = tinhToanPhanTrang(sanPhamPhanTich, 1);
-		addProductsFrom(sanPhamPhanTrang);
+	// Các màu (Giữ nguyên)
+	var soLuong = (window.innerWidth < 1200 ? 4 : 5);
+	var yellow_red = ['#ff9c00', '#ec1f1f'];
+	var blue = ['#42bcf4', '#004c70'];
+	var green = ['#5de272', '#007012'];
+	var pink_purple = ['#ad88c6', '#7469b6']
 
-		// Hiển thị list sản phẩm chính
-		document.getElementsByClassName('contain-products')[0].style.display = '';
-
-		// Các màu (Giữ nguyên)
-		var soLuong = (window.innerWidth < 1200 ? 4 : 5);
-		var yellow_red = ['#ff9c00', '#ec1f1f'];
-		var blue = ['#42bcf4', '#004c70'];
-		var green = ['#5de272', '#007012'];
-		var pink_purple = ['#ad88c6', '#7469b6']
-
-		// Thêm các khung sản phẩm (Giữ nguyên)
-		var div = document.getElementsByClassName('contain-khungSanPham')[0];
-		addKhungSanPham('SẢN PHẨM MỚI', blue, ['promo=moiramat', 'sort=rateCount-decrease'], soLuong, div);
-		addKhungSanPham('TRẢ GÓP 0%', pink_purple, ['promo=tragop', 'sort=rateCount-decrease'], soLuong, div);
-		addKhungSanPham('GIẢM GIÁ LỚN', yellow_red, ['promo=giamgia'], soLuong, div);
-		addKhungSanPham('GIÁ RẺ CHO MỌI NHÀ', green, ['price=0-3000000', 'sort=price'], soLuong, div);
-	}
+	// Thêm các khung sản phẩm (Giữ nguyên)
+	var div = document.getElementsByClassName('contain-khungSanPham')[0];
+	addKhungSanPham('SẢN PHẨM MỚI', blue, ['promo=moiramat', 'sort=rateCount-decrease'], soLuong, div);
+	addKhungSanPham('TRẢ GÓP 0%', pink_purple, ['promo=tragop', 'sort=rateCount-decrease'], soLuong, div);
+	addKhungSanPham('GIẢM GIÁ LỚN', yellow_red, ['promo=giamgia'], soLuong, div);
+	addKhungSanPham('GIÁ RẺ CHO MỌI NHÀ', green, ['price=0-3000000', 'sort=price'], soLuong, div);
 
 	// Thêm chọn mức giá
 	addPricesRange(0, 2000000);
@@ -92,7 +82,7 @@ function initTrangChu() {
 
 	// Thêm filter đã chọn
 	addAllChoosedFilter();
-	
+
 };
 
 var soLuongSanPhamMaxTrongMotTrang = 15;
