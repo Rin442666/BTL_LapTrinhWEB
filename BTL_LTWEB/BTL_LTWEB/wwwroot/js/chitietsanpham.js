@@ -35,6 +35,7 @@ async function phanTich_URL_chiTietSanPham() {
     }
     if (!foundProduct) return khongTimThaySanPham();
     sanPhamHienTai = foundProduct;
+    maProduct = sanPhamHienTai.masp;
 
     var divChiTiet = document.getElementsByClassName('chitietSanpham')[0];
     document.title = (nameProduct || '') + ' - Thế giới điện thoại';

@@ -8,7 +8,7 @@ wwwroot\css\pagination_phantrang.css
 wwwroot\css\site.css
 wwwroot\css\style.css
 wwwroot\css\trangchu.css
-wwwroot\js\chitietsanpham.js
+wwwroot\data\BanDienThoai.sql
 wwwroot\data\products.js
 wwwroot\favicon.ico
 wwwroot\img\banners\banner0.jpg
@@ -88,10 +88,9 @@ wwwroot\img\products\xiaomi_14t_pro.jpg
 wwwroot\img\products\xiaomi_poco_x5.jpg
 wwwroot\img\products\xiaomi_poco_x6_pro.jpg
 wwwroot\img\raumart.ico
-wwwroot\data\BanDienThoai.sql
+wwwroot\js\chitietsanpham.js
 wwwroot\js\classes.js
 wwwroot\js\dungchung.js
-wwwroot\js\giohang.js
 wwwroot\js\Jquery\Jquery.min.js
 wwwroot\js\owlcarousel\owl.carousel.min.css
 wwwroot\js\owlcarousel\owl.carousel.min.js
@@ -154,3 +153,4 @@ wwwroot\lib\jquery\dist\jquery.js
 wwwroot\lib\jquery\dist\jquery.min.js
 wwwroot\lib\jquery\dist\jquery.min.map
 wwwroot\lib\jquery\LICENSE.txt
+wwwroot\js\giohang.js

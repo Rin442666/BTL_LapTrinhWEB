@@ -22,6 +22,7 @@ async function initGioHang() {
 function addProductToTable() {
     const guestCart = JSON.parse(localStorage.getItem("guestCart")) || [];
     const table = document.getElementsByClassName('listSanPham')[0];
+    
     let s = `
         <tbody>
             <tr>
@@ -38,7 +39,7 @@ function addProductToTable() {
         table.innerHTML = s;
         return;
     }
-
+    console.log("Giỏ hàng hiện tại:", guestCart);
     let totalPrice = 0;
     guestCart.forEach((item, index) => {
         var productsArray = list_products.$values || list_products;
