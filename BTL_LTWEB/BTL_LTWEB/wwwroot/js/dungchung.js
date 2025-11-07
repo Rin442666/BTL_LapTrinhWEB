@@ -1,43 +1,66 @@
-function khoiTao() {
-    list_products = getListProducts() || list_products;
-    capNhat_ThongTin_CurrentUser();
-    addEventCloseAlertButton();
+var list_products = [];
+async function khoiTao() {
+    try {
+        list_products = await getListProducts();
+        if (list_products && list_products.$values) {
+            // Ánh xạ thành camelCase để nhất quán
+            list_products = list_products.$values.map(p => ({
+                masp: p.Masp,
+                name: p.Name,
+                company: p.Company,
+                img: p.Img,
+                price: p.Price,
+                star: p.Star,
+                rateCount: p.RateCount,
+                promo: p.Promo ? { name: p.Promo.Name, value: p.Promo.Value } : null,
+                detail: p.Detail // Giả sử có Detail
+            }));
+        } else {
+            list_products = [];
+        }
+        capNhat_ThongTin_CurrentUser();
+        addEventCloseAlertButton();
+    } catch (error) {
+        console.error('Lỗi khi khởi tạo:', error);
+        addAlertBox('Không thể tải dữ liệu sản phẩm. Vui lòng thử lại.', '#FF6347', '#fff', 5000);
+    }
 }
 
 function setListProducts(newList) {
     window.localStorage.setItem('ListProducts', JSON.stringify(newList));
 }
 
-function getListProducts() {
-    return JSON.parse(window.localStorage.getItem('ListProducts'));
+async function getListProducts() {
+    try {
+        const response = await fetch('/api/products');
+        if (!response.ok) throw new Error('API không phản hồi');
+        return await response.json();
+    } catch (error) {
+        console.error('Lỗi khi lấy sản phẩm:', error);
+        return [];
+    }
 }
 
 function timKiemTheoTen(list, ten, soluong) {
     var tempList = copyObject(list);
     var result = [];
-    ten = ten.split(' ');
-
+    ten = ten.toLowerCase().trim();
     for (var sp of tempList) {
-        var correct = true;
-        for (var t of ten) {
-            if (sp.name.toUpperCase().indexOf(t.toUpperCase()) < 0) {
-                correct = false;
-                break;
-            }
-        }
-        if (correct) {
+        if (sp.name && sp.name.toLowerCase().includes(ten)) {
             result.push(sp);
         }
     }
-
-    return result;
+    return result.slice(0, soluong || result.length);
 }
 
-function timKiemTheoMa(list, ma) {
-    for (var l of list) {
-        if (l.masp == ma) return l;
+async function timKiemTheoMa(list, ma) {
+    if (!list || list.length === 0) {
+        const response = await fetch(`/api/products/${ma}`);
+        return response.ok ? await response.json() : null;
     }
+    return list.find(l => l.masp == ma);
 }
+
 
 function copyObject(o) {
     return JSON.parse(JSON.stringify(o));
@@ -141,6 +164,19 @@ function autocomplete(inp, arr) {
             }
         }
     });
+
+    function addActive(x) { 
+        if (!x) return false;
+        removeActive(x);
+        if (currentFocus >= x.length) currentFocus = 0;
+        if (currentFocus < 0) currentFocus = (x.length - 1);
+        x[currentFocus].classList.add("autocomplete-active");
+    }
+    function removeActive(x) {
+        for (var i = 0; i < x.length; i++) {
+            x[i].classList.remove("autocomplete-active");
+        }
+    }
 
     function closeAllLists(elmnt) {
         var x = document.getElementsByClassName("autocomplete-items");

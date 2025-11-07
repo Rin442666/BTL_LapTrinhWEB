@@ -1,14 +1,14 @@
-function initTrangChu() {
-	khoiTao();
+async function initTrangChu() {
+	await khoiTao();
+	console.log('list_products:', list_products);
 	// Thêm hình vào banner
 	addBanner(rootPath + "img/banners/banner0.jpg", rootPath + "img/banners/banner0.jpg");
-	var numBanner = 7; // Số lượng hình banner
+	var numBanner = 7;
 	for (var i = 1; i <= numBanner; i++) {
 		var linkimg = rootPath + "/img/banners/banner" + i + ".jpg";
 		addBanner(linkimg, linkimg);
 	}
 
-	// Khởi động thư viện hỗ trợ banner - chỉ chạy khi đã tạo hình trong banner
 	var owl = $('.owl-carousel');
 	owl.owlCarousel({
 		items: 1.5,
@@ -20,50 +20,34 @@ function initTrangChu() {
 		autoplayTimeout: 3500 * 1.5
 	});
 
-	// autocomplete cho khung tim kiem
 	autocomplete(document.getElementById('search-box'), list_products);
 
-	// thêm tags (từ khóa) vào khung tìm kiếm
 	var tags = ["Samsung", "iPhone", "Huawei", "Oppo"];
-	for (var t of tags) addTags(t, "index.cshtml?search=" + t);
+	for (var t of tags) addTags(t, "/?search=" + t);  // Sửa URL
 
-	// Thêm danh sách hãng điện thoại
-	var company = ["Apple.jpg", "Samsung.jpg", "Oppo.jpg", "Nokia.jpg", "Xiaomi.png",
-	];
+	var company = ["Apple.jpg", "Samsung.jpg", "Oppo.jpg", "Nokia.jpg", "Xiaomi.png"];
 	for (var c of company) addCompany(rootPath + "/img/company/" + c, c.slice(0, c.length - 4));
 
-	// Thêm sản phẩm vào trang
-	var sanPhamPhanTich;
-	var sanPhamPhanTrang;
-
 	var filters = getFilterFromURL();
-	if (filters.length) { // có filter
+	if (filters.length) {
 		sanPhamPhanTich = phanTich_URL(filters, true);
 		sanPhamPhanTrang = tinhToanPhanTrang(sanPhamPhanTich, filtersFromUrl.page || 1);
 		if (!sanPhamPhanTrang.length) alertNotHaveProduct(false);
 		else addProductsFrom(sanPhamPhanTrang);
-
-		// hiển thị list sản phẩm chính
 		document.getElementsByClassName('contain-products')[0].style.display = '';
-
 	} else {
-
-		// --- BỔ SUNG: Hiển thị sản phẩm chính theo phân trang (mặc định) ---
-		sanPhamPhanTich = list_products;
+		sanPhamPhanTich = list_products;  // Đã là array
+		console.log('sanPhamPhanTich:', sanPhamPhanTich);
 		sanPhamPhanTrang = tinhToanPhanTrang(sanPhamPhanTich, 1);
 		addProductsFrom(sanPhamPhanTrang);
-
-		// Hiển thị list sản phẩm chính
 		document.getElementsByClassName('contain-products')[0].style.display = '';
 
-		// Các màu (Giữ nguyên)
 		var soLuong = (window.innerWidth < 1200 ? 4 : 5);
 		var yellow_red = ['#ff9c00', '#ec1f1f'];
 		var blue = ['#42bcf4', '#004c70'];
 		var green = ['#5de272', '#007012'];
-		var pink_purple = ['#ad88c6', '#7469b6']
+		var pink_purple = ['#ad88c6', '#7469b6'];
 
-		// Thêm các khung sản phẩm (Giữ nguyên)
 		var div = document.getElementsByClassName('contain-khungSanPham')[0];
 		addKhungSanPham('SẢN PHẨM MỚI', blue, ['promo=moiramat', 'sort=rateCount-decrease'], soLuong, div);
 		addKhungSanPham('TRẢ GÓP 0%', pink_purple, ['promo=tragop', 'sort=rateCount-decrease'], soLuong, div);
@@ -125,24 +109,20 @@ function getFilterFromURL() { // tách và trả về mảng bộ lọc trên ur
 }
 
 function phanTich_URL(filters, saveFilter) {
-	// var filters = getFilterFromURL();
 	var result = copyObject(list_products);
-
 	for (var i = 0; i < filters.length; i++) {
 		var dauBang = filters[i].split('=');
-
 		switch (dauBang[0]) {
 			case 'search':
-				dauBang[1] = dauBang[1].split('+').join(' ');
+				dauBang[1] = decodeURIComponent(dauBang[1]).split('+').join(' ');
 				result = timKiemTheoTen(result, dauBang[1]);
 				if (saveFilter) filtersFromUrl.search = dauBang[1];
 				break;
-
 			case 'price':
 				if (saveFilter) filtersFromUrl.price = dauBang[1];
-
 				var prices = dauBang[1].split('-');
 				prices[1] = Number(prices[1]) || 1E10;
+				if (prices[0] < 0 || prices[1] < 0) continue; // Xác thực giá
 				result = timKiemTheoGiaTien(result, prices[0], prices[1]);
 				break;
 
@@ -150,16 +130,13 @@ function phanTich_URL(filters, saveFilter) {
 				result = timKiemTheoCongTySanXuat(result, dauBang[1]);
 				if (saveFilter) filtersFromUrl.company = dauBang[1];
 				break;
-
 			case 'promo':
 				result = timKiemTheoKhuyenMai(result, dauBang[1]);
 				if (saveFilter) filtersFromUrl.promo = dauBang[1];
 				break;
-
-			case 'page': // page luôn ở cuối đường link
+			case 'page':
 				if (saveFilter) filtersFromUrl.page = dauBang[1];
 				break;
-
 			case 'sort':
 				var s = dauBang[1].split('-');
 				var tenThanhPhanCanSort = s[0];
@@ -173,7 +150,6 @@ function phanTich_URL(filters, saveFilter) {
 							return giaA - giaB;
 						});
 						break;
-
 					case 'name':
 						if (saveFilter) filtersFromUrl.sort.by = 'name';
 						result.sort(function (a, b) {
@@ -181,16 +157,13 @@ function phanTich_URL(filters, saveFilter) {
 						});
 						break;
 				}
-
 				if (s[1] == 'decrease') {
 					if (saveFilter) filtersFromUrl.sort.type = 'decrease';
 					result.reverse();
 				}
-
 				break;
 		}
 	}
-
 	return result;
 }
 
@@ -198,42 +171,42 @@ function phanTich_URL(filters, saveFilter) {
 function addProductsFrom(list, vitri, soluong) {
 	var start = vitri || 0;
 	var end = (soluong ? start + soluong : list.length);
+	var fragment = document.createDocumentFragment(); // Tối ưu DOM
 	for (var i = start; i < end; i++) {
-		addProduct(list[i]);
+		var li = document.createElement('li');
+		li.innerHTML = addProduct(list[i], null, true);
+		fragment.appendChild(li);
 	}
+	var products = document.getElementById('products');
+	products.appendChild(fragment);
 }
 
 // Thêm sản phẩm vào các khung sản phẩm
 function addKhungSanPham(tenKhung, color, filter, len, ele) {
-	// convert color to code
 	var gradient = `background-image: linear-gradient(120deg, ` + color[0] + ` 0%, ` + color[1] + ` 50%, ` + color[0] + ` 100%);`
 	var borderColor = `border-color: ` + color[0];
-	var borderA = `	border-left: 2px solid ` + color[0] + `;
-					border-right: 2px solid ` + color[0] + `;`;
-
-	// mở tag
+	var borderA = `border-left: 2px solid ` + color[0] + `;
+                    border-right: 2px solid ` + color[0] + `;`;
 	var s = `<div class="khungSanPham" style="` + borderColor + `">
-				<h3 class="tenKhung" style="` + gradient + `"> ` + tenKhung + ` </h3>
-				<div class="listSpTrongKhung flexContain">`;
-
-	// thêm các <li> (sản phẩm) vào tag
+                <h3 class="tenKhung" style="` + gradient + `"> ` + tenKhung + ` </h3>
+                <div class="listSpTrongKhung flexContain">`;
 	var spResult = phanTich_URL(filter, false);
 	if (spResult.length < len) len = spResult.length;
-
+	var fragment = document.createDocumentFragment(); // Tối ưu DOM
 	for (var i = 0; i < len; i++) {
-		s += addProduct(spResult[i], null, true);
-		// truyền vào 'true' để trả về chuỗi rồi gán vào s
+		var li = document.createElement('li');
+		li.innerHTML = addProduct(spResult[i], null, true);
+		fragment.appendChild(li);
 	}
-
-	// thêm nút xem tất cả rồi đóng tag
-	s += `	</div>
-			<a class="xemTatCa" href="/?` + filter.join('&') + `" style="` + borderA + `">
-				Xem tất cả ` + spResult.length + ` sản phẩm
-			</a>
-		</div> <hr>`;
-
-	// thêm khung vào contain-khung
-	ele.innerHTML += s;
+	s += `</div>
+            <a class="xemTatCa" href="/?` + filter.join('&') + `" style="` + borderA + `">
+                Xem tất cả ` + spResult.length + ` sản phẩm
+            </a>
+        </div> <hr>`;
+	var khung = document.createElement('div');
+	khung.innerHTML = s;
+	khung.querySelector('.listSpTrongKhung').appendChild(fragment);
+	ele.appendChild(khung);
 }
 
 // Nút phân trang

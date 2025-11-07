@@ -52,61 +52,50 @@ function Product(masp, name, img, price, star, rateCount, promo) {
     this.rateCount = rateCount; // Number of ratings
     this.promo = promo; // Promo object
 }
-
 function addToWeb(p, ele, returnString) {
-    // Ensure the product is valid and exists
     if (!p) return;
-
-    // Chuyển star sang dạng tag html
+    if (!p.promo) p.promo = { name: '', value: '' };
+    promo = new Promo(p.promo.name, p.promo.value);
+    product = new Product(p.masp, p.name, p.img, p.price, p.star, p.rateCount, promo);
     var rating = "";
-    if (p.rateCount > 0) {
+    if (product.rateCount > 0) {
         for (var i = 1; i <= 5; i++) {
-            if (i <= p.star) {
+            if (i <= product.star) {
                 rating += `<i class="fa fa-star"></i>`;
             } else {
                 rating += `<i class="fa fa-star-o"></i>`;
             }
         }
-        rating += `<span>` + p.rateCount + ` đánh giá</span>`;
+        rating += `<span>` + product.rateCount + ` đánh giá</span>`;
     }
-
-    // Chuyển giá tiền sang dạng tag html
-    var price = `<strong>` + p.price + `&#8363;</strong>`;
-    if (p.promo && p.promo.name === "giareonline") {
-        // khuyến mãi 'Giá rẻ online' sẽ có giá thành mới
-        price = `<strong>` + p.promo.value + `&#8363;</strong>
-                <span>` + p.price + `&#8363;</span>`;
+    var price = `<strong>` + product.price + `&#8363;</strong>`;
+    if (promo.name === "giareonline") {
+        price = `<strong>` + promo.value + `&#8363;</strong>
+                <span>` + product.price + `&#8363;</span>`;
     }
-
-    // Tạo link tới chi tiết sản phẩm, chuyển tất cả ' ' thành '-'
-    var chitietSp = '/chitietsanpham?' + p.name.split(' ').join('-');
-
-    // Cho mọi thứ vào tag <li>... </li>
+    var chitietSp = '/chitietsanpham?' + encodeURIComponent((product.name || '').replace(/\s+/g, '-'));
+    var imgSrc = product.img || '/img/default.jpg'; // Fallback hình ảnh
     var newLi =
-    `<li class="sanPham">
-        <a href="` + chitietSp + `">
-            <img src=` + p.img + ` alt="">
-            <h3>` + p.name + `</h3>
-            <div class="price">
-                ` + price + `
-            </div>
-            <div class="ratingresult">
-                ` + rating + `
-            </div>
-            ` + (p.promo && p.promo.toWeb()) + `
-            <div class="tooltip">
-                <button class="themvaogio" onclick="themVaoGioHang('` + p.masp + `', '` + p.name + `'); return false;">
-                    <span class="tooltiptext" style="font-size: 15px;">Thêm vào giỏ</span>
-                    +
-                </button>
-            </div>
-        </a>
-    </li>`;
-
+        `<li class="sanPham">
+            <a href="` + chitietSp + `">
+                <img src="` + imgSrc + `" alt="` + (product.name || '') + `">
+                <h3>` + (product.name || '') + `</h3>
+                <div class="price">
+                    ` + price + `
+                </div>
+                <div class="ratingresult">
+                    ` + rating + `
+                </div>
+                ` + promo.toWeb() + `
+                <div class="tooltip">
+                    <button class="themvaogio" onclick="themVaoGioHang('` + product.masp + `', '` + (product.name || '') + `'); return false;">
+                        <span class="tooltiptext" style="font-size: 15px;">Thêm vào giỏ</span>
+                        +
+                    </button>
+                </div>
+            </a>
+        </li>`;
     if (returnString) return newLi;
-
-    // Thêm tag <li> vừa tạo vào <ul> homeproduct (mặc định) , hoặc tag ele truyền vào
     var products = ele || document.getElementById('products');
-    products.innerHTML += newLi; // Ensure products are appended correctly
+    products.innerHTML += newLi;
 }
-

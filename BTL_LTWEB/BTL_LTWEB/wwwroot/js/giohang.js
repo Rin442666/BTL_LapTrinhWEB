@@ -8,12 +8,13 @@ function setCart(newCart) {
 }
 
 // Load dữ liệu và cập nhật bảng khi trang được tải
-function initGioHang() {
-    khoiTao();
+async function initGioHang() {
+    if (window.location.pathname !== '/giohang') return;
+    await khoiTao();
     addProductToTable();
     autocomplete(document.getElementById('search-box'), list_products);
     var tags = ["Samsung", "iPhone", "Huawei", "Oppo"];
-    for (var t of tags) addTags(t, "/?search=" + t); 
+    for (var t of tags) addTags(t, "/?search=" + t);
     addProductToTable();
 }
 
@@ -21,7 +22,6 @@ function initGioHang() {
 function addProductToTable() {
     const guestCart = JSON.parse(localStorage.getItem("guestCart")) || [];
     const table = document.getElementsByClassName('listSanPham')[0];
-
     let s = `
         <tbody>
             <tr>
@@ -33,49 +33,40 @@ function addProductToTable() {
                 <th>Thời gian</th>
                 <th>Xóa</th>
             </tr>`;
-
     if (guestCart.length === 0) {
-        s += `
-            <tr>
-                <td colspan="7"> 
-                    <h1 style="color:green; background-color:white; font-weight:bold; text-align:center; padding: 15px 0;">
-                        Giỏ hàng trống !!
-                    </h1> 
-                </td>
-            </tr>`;
+        s += `<tr><td colspan="7"><h1 style="color:green; background-color:white; font-weight:bold; text-align:center; padding: 15px 0;">Giỏ hàng trống !!</h1></td></tr>`;
         table.innerHTML = s;
         return;
     }
 
     let totalPrice = 0;
     guestCart.forEach((item, index) => {
-        const product = timKiemTheoMa(list_products, item.ma);
-        const price = product.promo.name === 'giareonline' ? product.promo.value : product.price;
+        var productsArray = list_products.$values || list_products;
+        const product = productsArray.find(p => p.masp == item.ma) || {};  // Tìm sản phẩm
+        const price = (product.promo?.name === 'giareonline' ? product.promo?.value : product.price) || '';
         const totalItemPrice = stringToNum(price) * item.soluong;
         const dateAdded = new Date(item.date).toLocaleString();
-
         s += `
             <tr>
                 <td>${index + 1}</td>
-                <td>${product.name}</td>
+                <td>${product.name || ''}</td>
                 <td class="alignRight">${price} ₫</td>
                 <td class="soluong">${item.soluong}</td>
                 <td class="alignRight">${numToString(totalItemPrice)} ₫</td>
                 <td style="text-align: center">${dateAdded}</td>
-                <td class="noPadding"> <i class="fa fa-trash" onclick="xoaSanPhamTrongGioHang(${index})"></i> </td>
+                <td class="noPadding"><i class="fa fa-trash" onclick="xoaSanPhamTrongGioHang(${index})"></i></td>
             </tr>`;
         totalPrice += totalItemPrice;
     });
 
     s += `
         <tr style="font-weight:bold; text-align:center">
-            <td colspan="4">TỔNG TIỀN: </td>
+            <td colspan="4">TỔNG TIỀN:</td>
             <td class="alignRight">${numToString(totalPrice)} ₫</td>
-            <td class="thanhtoan" onclick="thanhToan()"> Thanh Toán </td>
-            <td class="xoaHet" onclick="xoaHet()"> Xóa hết </td>
+            <td class="thanhtoan" onclick="thanhToan()">Thanh Toán</td>
+            <td class="xoaHet" onclick="xoaHet()">Xóa hết</td>
         </tr>
     </tbody>`;
-
     table.innerHTML = s;
 }
 
