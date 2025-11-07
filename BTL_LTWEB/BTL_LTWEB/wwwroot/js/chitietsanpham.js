@@ -1,8 +1,8 @@
 var nameProduct, maProduct, sanPhamHienTai; // Tên sản phẩm trong trang này, 
 // là biến toàn cục để có thể dùng ở bất cứ đâu
 
-function initChiTietSanPham() {
-    khoiTao();
+async function initChiTietSanPham() {
+    await khoiTao();
     var tags = ["Samsung", "iPhone", "Huawei", "Oppo"];
     for (var t of tags) addTags(t, "/?search=" + t, true);  // Sửa URL
     phanTich_URL_chiTietSanPham();
@@ -15,18 +15,26 @@ function khongTimThaySanPham() {
     document.getElementsByClassName('chitietSanpham')[0].style.display = 'none';
 }
 
+function getProductNameFromURL() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const nameParam = urlParams.get('name'); // lấy tham số "name"
+    if (!nameParam) return null;
+    return decodeURIComponent(nameParam).split('-').join(' ');
+}
+
 async function phanTich_URL_chiTietSanPham() {
-    nameProduct = decodeURIComponent(window.location.href.split('?')[1] || '').replace(/-/g, ' ');
+    nameProduct = getProductNameFromURL();
     if (!nameProduct) return khongTimThaySanPham();
-    var productsArray = list_products;
+    var productsArray = list_products || [];
+    var foundProduct = null;
     for (var p of productsArray) {
-        if (p.name.toLowerCase() === nameProduct.toLowerCase()) {
-            maProduct = p.masp;
+        if (p.name && p.name.toLowerCase() === nameProduct.toLowerCase()) {
+            foundProduct = p;
             break;
         }
     }
-    sanPhamHienTai = await timKiemTheoMa(null, maProduct);
-    if (!sanPhamHienTai) return khongTimThaySanPham();
+    if (!foundProduct) return khongTimThaySanPham();
+    sanPhamHienTai = foundProduct;
 
     var divChiTiet = document.getElementsByClassName('chitietSanpham')[0];
     document.title = (nameProduct || '') + ' - Thế giới điện thoại';
@@ -34,18 +42,21 @@ async function phanTich_URL_chiTietSanPham() {
     h1.innerHTML += nameProduct || '';
 
     // Cập nhật sao
-    var rating = "";
-    if ((sanPhamHienTai.rateCount || 0) > 0) {
-        for (var i = 1; i <= 5; i++) {
-            if (i <= (sanPhamHienTai.star || 0)) {
-                rating += `<i class="fa fa-star"></i>`;
-            } else {
-                rating += `<i class="fa fa-star-o"></i>`;
+    var ratingDiv = divChiTiet.getElementsByClassName('rating')[0];
+    if (ratingDiv) {
+        var rating = "";
+        if ((sanPhamHienTai.rateCount || 0) > 0) {
+            for (var i = 1; i <= 5; i++) {
+                if (i <= (sanPhamHienTai.star || 0)) {
+                    rating += `<i class="fa fa-star"></i>`;
+                } else {
+                    rating += `<i class="fa fa-star-o"></i>`;
+                }
             }
+            rating += `<span> ` + (sanPhamHienTai.rateCount || 0) + ` đánh giá</span>`;
         }
-        rating += `<span> ` + (sanPhamHienTai.rateCount || 0) + ` đánh giá</span>`;
+        ratingDiv.innerHTML = rating;
     }
-    divChiTiet.getElementsByClassName('rating')[0].innerHTML += rating;
 
 
     // Cập nhật giá + label khuyến mãi
@@ -62,14 +73,15 @@ async function phanTich_URL_chiTietSanPham() {
 
     // Cập nhật thông số
     var info = document.getElementsByClassName('info')[0];
-    var s = addThongSo('Màn hình', sanPhamHienTai.detail?.screen || '');
-    s += addThongSo('Camera sau', sanPhamHienTai.detail?.camera || '');
-    s += addThongSo('Camera trước', sanPhamHienTai.detail?.cameraFront || '');
-    s += addThongSo('CPU', sanPhamHienTai.detail?.cpu || '');
-    s += addThongSo('RAM', sanPhamHienTai.detail?.ram || '');
-    s += addThongSo('Bộ nhớ trong', sanPhamHienTai.detail?.rom || '');
-    s += addThongSo('Kháng nước, kháng bụi', sanPhamHienTai.detail?.waterProof || '');
-    s += addThongSo('Dung lượng pin', sanPhamHienTai.detail?.battery || '');
+    var s = addThongSo('Màn hình', sanPhamHienTai.detail?.Screen || 'Đang cập nhật');
+    s += addThongSo('Camera sau', sanPhamHienTai.detail?.Camera || 'Đang cập nhật');
+    s += addThongSo('Camera sau', sanPhamHienTai.detail?.Camera || 'Đang cập nhật');
+    s += addThongSo('Camera trước', sanPhamHienTai.detail?.CameraFront || 'Đang cập nhật');
+    s += addThongSo('CPU', sanPhamHienTai.detail?.Cpu || 'Đang cập nhật');
+    s += addThongSo('RAM', sanPhamHienTai.detail?.Ram || 'Đang cập nhật');
+    s += addThongSo('Bộ nhớ trong', sanPhamHienTai.detail?.Rom || 'Đang cập nhật');
+    s += addThongSo('Kháng nước, kháng bụi', sanPhamHienTai.detail?.WaterProof || 'Đang cập nhật');
+    s += addThongSo('Dung lượng pin', sanPhamHienTai.detail?.Battery || 'Đang cập nhật');
     info.innerHTML = s;
     var hinh = divChiTiet.getElementsByClassName('picture')[0].getElementsByTagName('img')[0];
     hinh.src = sanPhamHienTai.img || '';
@@ -77,13 +89,10 @@ async function phanTich_URL_chiTietSanPham() {
 
 
     // Hình nhỏ
-    addSmallImg("~/img/products/huawei-mate-20-pro-green-600x600.jpg");
-    addSmallImg("~/img/chitietsanpham/oppo-f9-mau-do-1-org.jpg");
-    addSmallImg("~/img/chitietsanpham/oppo-f9-mau-do-2-org.jpg");
-    addSmallImg("~/img/chitietsanpham/oppo-f9-mau-do-3-org.jpg");
-    addSmallImg("~/img/products/huawei-mate-20-pro-green-600x600.jpg");
-    addSmallImg("~/img/chitietsanpham/oppo-f9-mau-do-3-org.jpg");
-    addSmallImg("~/img/products/huawei-mate-20-pro-green-600x600.jpg");
+    addSmallImg("/img/chitietsanpham/oppo-f9-mau-do-1-org.jpg");
+    addSmallImg("/img/chitietsanpham/oppo-f9-mau-do-2-org.jpg");
+    addSmallImg("/img/chitietsanpham/oppo-f9-mau-do-3-org.jpg");
+    addSmallImg("/img/chitietsanpham/oppo-f9-mau-do-3-org.jpg");
 
     // Khởi động thư viện hỗ trợ banner - chỉ chạy sau khi tạo xong hình nhỏ
     var owl = $('.owl-carousel');

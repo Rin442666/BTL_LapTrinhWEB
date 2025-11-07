@@ -1,6 +1,9 @@
-﻿INSERT INTO SanPham (MaSP, TenSP, HangSX, HinhAnh, Gia, Sao, SoDanhGia)
+﻿drop * from ChiTietSanPham;
+drop from KhuyenMai;
+drop from SanPham;
+INSERT INTO SanPham (MaSP, TenSP, HangSX, HinhAnh, Gia, Sao, SoDanhGia)
 VALUES
-('Xia0', N'Xiaomi Redmi Note 12 4G', N'Xiaomi', N'/img/products/Xiaomi-Redmi-Note-12-4G.jpg', N'4.990.000', 0, 0),
+('Xia0', N'Xiaomi Redmi Note 12 4G', N'Xiaomi', N'/img/products/Xiaomi-Redmi-Note-12-4G.jpg', N'4.990.000', 5, 100),
 ('Xia1', N'Xiaomi 14T Pro', N'Xiaomi', N'/img/products/xiaomi_14t_pro.jpg', N'17.990.000', 0, 0),
 ('Xia2', N'Xiaomi POCO X6 Pro 5G', N'Xiaomi', N'/img/products/xiaomi_poco_x6_pro.jpg', N'8.490.000', 0, 0),
 ('Xia3', N'Xiaomi Redmi Note 13 Pro Plus 5G', N'Xiaomi', N'/img/products/xiaomi-redmi-note-13-pro-plus.jpg', N'9.690.000', 0, 0),
@@ -20,7 +23,7 @@ VALUES
 ('App7', N'iPhone XS', N'Apple', N'/img/products/iphone-xs.jpg', N'8.090.000', 0, 0),
 ('App8', N'iPhone Xr', N'Apple', N'/img/products/iphone-xr.jpg', N'5.990.000', 0, 0),
 ('App9', N'iPhone 11', N'Apple', N'/img/products/iphone-11.jpg', N'10.390.000', 0, 0),
-('App10', N'iPhone 6S Like New 99%', N'Apple', N'/img/products/iphone-6s.jpg', '1.390.000', 0, 0),
+('App10', N'iPhone 6S Like New 99', N'Apple', N'/img/products/iphone-6s.jpg', '1.390.000', 0, 0),
 ('Sam0', N'Samsung Galaxy S24 Ultra', N'Samsung', N'/img/products/samsung-galaxy-s24-ultra.jpg', '33.490.000', 0, 0),
 ('Sam1', N'Samsung Galaxy Z Fold6', N'Samsung', N'/img/products/samsung-galaxy-z-fold6.jpg', '49.890.000', 0, 0),
 ('Sam2', N'Samsung Galaxy Z Flip6', N'Samsung', N'/img/products/samsung-galaxy-z-flip-6.jpg', '28.190.000', 0, 0),
@@ -29,7 +32,7 @@ VALUES
 ('Sam5', N'Samsung Galaxy A06', N'Samsung', N'/img/products/samsung-galaxy-a06.jpg', '3.490.000', 0, 0),
 ('Sam6', N'Samsung Galaxy M14 5G', N'Samsung', N'/img/products/samsung-galaxy-m14.jpg', '4.690.000', 0, 0),
 ('Sam7', N'Samsung Galaxy S21 FE', N'Samsung', N'/img/products/samsung-galaxy-s21-fe.jpg', '10.500.000', 0, 0),
-('Sam8', N'Samsung Galaxy A31 Like New 75%', N'Samsung', N'/img/products/samsung-a31.jpg', '999.999', 0, 0),
+('Sam8', N'Samsung Galaxy A31 Like New 75', N'Samsung', N'/img/products/samsung-a31.jpg', '999.999', 0, 0),
 ('Sam9', N'Samsung Galaxy Z Flip5 512GB Line Friends', N'Samsung', N'/img/products/samsung-galaxy-z-flip-5-line-friends.jpg', '16.490.000', 0, 0),
 ('Opp0', N'OPPO A3', N'Oppo', N'/img/products/oppo-a3.jpg', '4.990.000', 0, 0),
 ('Opp1', N'OPPO Reno12 5G', N'Oppo', N'/img/products/oppo-reno12.jpg', '12.690.000', 0, 0),
@@ -41,7 +44,7 @@ VALUES
 ('Opp7', N'OPPO Reno11 F 5G', N'Oppo', N'/img/products/oppo-reno-11-f.jpg', '8.490.000', 0, 0),
 ('Opp8', N'OPPO Reno12 F 5G', N'Oppo', N'/img/products/oppo-reno12-f-5g.jpg', '9.190.000', 0, 0),
 ('Opp9', N'OPPO A79 5G', N'Oppo', N'/img/products/oppo-a79.jpg', '6.890.000', 0, 0),
-('Nok0', N'Nokia 100% 24K Carat Gold', N'Nokia', N'/img/products/nokia-gold.jpg', '999.999.999', 0, 0);
+('Nok0', N'Nokia 24K Carat Gold', N'Nokia', N'/img/products/nokia-gold.jpg', '999.999.999', 0, 0);
 
 INSERT INTO KhuyenMai (MaSP, TenKM, GiaTri)
 VALUES

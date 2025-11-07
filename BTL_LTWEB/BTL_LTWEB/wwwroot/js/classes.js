@@ -73,7 +73,7 @@ function addToWeb(p, ele, returnString) {
         price = `<strong>` + promo.value + `&#8363;</strong>
                 <span>` + product.price + `&#8363;</span>`;
     }
-    var chitietSp = '/chitietsanpham?' + encodeURIComponent((product.name || '').replace(/\s+/g, '-'));
+    var chitietSp = '/chitietsanpham?name=' + encodeURIComponent((product.name || '').replace(/\s+/g, '-'));
     var imgSrc = product.img || '/img/default.jpg'; // Fallback hình ảnh
     var newLi =
         `<li class="sanPham">

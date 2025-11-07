@@ -1,7 +1,40 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\Admin\\source\\web\\BTL_LTWEB\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{46FE9C84-ABCF-4A1A-912F-1B4D1A492C5A}|BTL_LTWEB\\BTL_LTWEB.csproj|c:\\users\\admin\\source\\web\\btl_ltweb\\btl_ltweb\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{46FE9C84-ABCF-4A1A-912F-1B4D1A492C5A}|BTL_LTWEB\\BTL_LTWEB.csproj|solutionrelative:btl_ltweb\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{46FE9C84-ABCF-4A1A-912F-1B4D1A492C5A}|BTL_LTWEB\\BTL_LTWEB.csproj|c:\\users\\admin\\source\\web\\btl_ltweb\\btl_ltweb\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{46FE9C84-ABCF-4A1A-912F-1B4D1A492C5A}|BTL_LTWEB\\BTL_LTWEB.csproj|solutionrelative:btl_ltweb\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{46FE9C84-ABCF-4A1A-912F-1B4D1A492C5A}|BTL_LTWEB\\BTL_LTWEB.csproj|c:\\users\\admin\\source\\web\\btl_ltweb\\btl_ltweb\\wwwroot\\data\\bandienthoai.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}",
+      "RelativeMoniker": "D:0:0:{46FE9C84-ABCF-4A1A-912F-1B4D1A492C5A}|BTL_LTWEB\\BTL_LTWEB.csproj|solutionrelative:btl_ltweb\\wwwroot\\data\\bandienthoai.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{46FE9C84-ABCF-4A1A-912F-1B4D1A492C5A}|BTL_LTWEB\\BTL_LTWEB.csproj|c:\\users\\admin\\source\\web\\btl_ltweb\\btl_ltweb\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{46FE9C84-ABCF-4A1A-912F-1B4D1A492C5A}|BTL_LTWEB\\BTL_LTWEB.csproj|solutionrelative:btl_ltweb\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{46FE9C84-ABCF-4A1A-912F-1B4D1A492C5A}|BTL_LTWEB\\BTL_LTWEB.csproj|c:\\users\\admin\\source\\web\\btl_ltweb\\btl_ltweb\\wwwroot\\js\\chitietsanpham.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{46FE9C84-ABCF-4A1A-912F-1B4D1A492C5A}|BTL_LTWEB\\BTL_LTWEB.csproj|solutionrelative:btl_ltweb\\wwwroot\\js\\chitietsanpham.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{46FE9C84-ABCF-4A1A-912F-1B4D1A492C5A}|BTL_LTWEB\\BTL_LTWEB.csproj|c:\\users\\admin\\source\\web\\btl_ltweb\\btl_ltweb\\views\\home\\chitietsanpham.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{46FE9C84-ABCF-4A1A-912F-1B4D1A492C5A}|BTL_LTWEB\\BTL_LTWEB.csproj|solutionrelative:btl_ltweb\\views\\home\\chitietsanpham.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{46FE9C84-ABCF-4A1A-912F-1B4D1A492C5A}|BTL_LTWEB\\BTL_LTWEB.csproj|c:\\users\\admin\\source\\web\\btl_ltweb\\btl_ltweb\\wwwroot\\data\\bandienthoai.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame",
+      "RelativeMoniker": "D:0:0:{46FE9C84-ABCF-4A1A-912F-1B4D1A492C5A}|BTL_LTWEB\\BTL_LTWEB.csproj|solutionrelative:btl_ltweb\\wwwroot\\data\\bandienthoai.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{46FE9C84-ABCF-4A1A-912F-1B4D1A492C5A}|BTL_LTWEB\\BTL_LTWEB.csproj|c:\\users\\admin\\source\\web\\btl_ltweb\\btl_ltweb\\wwwroot\\data\\bandienthoai.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|ResultFrame",
+      "RelativeMoniker": "D:0:0:{46FE9C84-ABCF-4A1A-912F-1B4D1A492C5A}|BTL_LTWEB\\BTL_LTWEB.csproj|solutionrelative:btl_ltweb\\wwwroot\\data\\bandienthoai.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|ResultFrame"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,7 +42,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 10,
           "Children": [
             {
               "$type": "Bookmark",
@@ -38,6 +71,80 @@
             {
               "$type": "Bookmark",
               "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\Admin\\source\\web\\BTL_LTWEB\\BTL_LTWEB\\appsettings.json",
+              "RelativeDocumentMoniker": "BTL_LTWEB\\appsettings.json",
+              "ToolTip": "C:\\Users\\Admin\\source\\web\\BTL_LTWEB\\BTL_LTWEB\\appsettings.json",
+              "RelativeToolTip": "BTL_LTWEB\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-11-07T11:37:14.667Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "chitietsanpham.js",
+              "DocumentMoniker": "C:\\Users\\Admin\\source\\web\\BTL_LTWEB\\BTL_LTWEB\\wwwroot\\js\\chitietsanpham.js",
+              "RelativeDocumentMoniker": "BTL_LTWEB\\wwwroot\\js\\chitietsanpham.js",
+              "ToolTip": "C:\\Users\\Admin\\source\\web\\BTL_LTWEB\\BTL_LTWEB\\wwwroot\\js\\chitietsanpham.js",
+              "RelativeToolTip": "BTL_LTWEB\\wwwroot\\js\\chitietsanpham.js",
+              "ViewState": "AgIAACIAAAAAAAAAAAAuwEgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-11-07T10:45:37.724Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "BanDienThoai.sql ",
+              "DocumentMoniker": "C:\\Users\\Admin\\source\\web\\BTL_LTWEB\\BTL_LTWEB\\wwwroot\\data\\BanDienThoai.sql",
+              "RelativeDocumentMoniker": "BTL_LTWEB\\wwwroot\\data\\BanDienThoai.sql",
+              "ToolTip": "C:\\Users\\Admin\\source\\web\\BTL_LTWEB\\BTL_LTWEB\\wwwroot\\data\\BanDienThoai.sql",
+              "RelativeToolTip": "BTL_LTWEB\\wwwroot\\data\\BanDienThoai.sql",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2025-11-07T10:41:18.243Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\source\\web\\BTL_LTWEB\\BTL_LTWEB\\Program.cs",
+              "RelativeDocumentMoniker": "BTL_LTWEB\\Program.cs",
+              "ToolTip": "C:\\Users\\Admin\\source\\web\\BTL_LTWEB\\BTL_LTWEB\\Program.cs*",
+              "RelativeToolTip": "BTL_LTWEB\\Program.cs*",
+              "ViewState": "AgIAABEAAAAAAAAAAAAowBkAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-07T08:17:53.494Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "chitietsanpham.cshtml",
+              "DocumentMoniker": "C:\\Users\\Admin\\source\\web\\BTL_LTWEB\\BTL_LTWEB\\Views\\Home\\chitietsanpham.cshtml",
+              "RelativeDocumentMoniker": "BTL_LTWEB\\Views\\Home\\chitietsanpham.cshtml",
+              "ToolTip": "C:\\Users\\Admin\\source\\web\\BTL_LTWEB\\BTL_LTWEB\\Views\\Home\\chitietsanpham.cshtml",
+              "RelativeToolTip": "BTL_LTWEB\\Views\\Home\\chitietsanpham.cshtml",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-07T10:46:49.124Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Product.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\source\\web\\BTL_LTWEB\\BTL_LTWEB\\Models\\Product.cs",
+              "RelativeDocumentMoniker": "BTL_LTWEB\\Models\\Product.cs",
+              "ToolTip": "C:\\Users\\Admin\\source\\web\\BTL_LTWEB\\BTL_LTWEB\\Models\\Product.cs",
+              "RelativeToolTip": "BTL_LTWEB\\Models\\Product.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-07T08:00:19.218Z"
             }
           ]
         }
