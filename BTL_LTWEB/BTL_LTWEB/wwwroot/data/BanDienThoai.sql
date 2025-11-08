@@ -1,6 +1,6 @@
-﻿drop * from ChiTietSanPham;
-drop from KhuyenMai;
-drop from SanPham;
+﻿DELETE FROM ChiTietSanPham;
+DELETE FROM KhuyenMai;
+DELETE FROM SanPham;
 INSERT INTO SanPham (MaSP, TenSP, HangSX, HinhAnh, Gia, Sao, SoDanhGia)
 VALUES
 ('Xia0', N'Xiaomi Redmi Note 12 4G', N'Xiaomi', N'/img/products/Xiaomi-Redmi-Note-12-4G.jpg', N'4.990.000', 5, 100),
